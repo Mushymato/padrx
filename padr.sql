@@ -54,6 +54,7 @@ CREATE TABLE Armors (
 	att2 varchar(10) REFERENCES Attributes ON DELETE CASCADE,
 	type1 varchar(10) NOT NULL REFERENCES Types ON DELETE CASCADE,
 	type2 varchar(10) REFERENCES Types ON DELETE CASCADE,
+	type3 varchar(10) REFERENCES Types ON DELETE CASCADE,
 	obtainable boolean NOT NULL,
 	rareGatcha boolean NOT NULL
 );
@@ -66,7 +67,7 @@ CREATE TABLE ArmorActives (
 	a2 varchar(10) REFERENCES Actives ON DELETE CASCADE,
 	a3 varchar(10) REFERENCES Actives ON DELETE CASCADE,
 	a4 varchar(10) REFERENCES Actives ON DELETE CASCADE,
-	a5 varchar(10) REFERENCES Actives ON DELETE CASCADE,
+	a5 varchar(10) REFERENCES Actives ON DELETE CASCADE
 );
 
 
@@ -79,7 +80,7 @@ CREATE TABLE ArmorAwakes (
 	a5 varchar(10) NOT NULL REFERENCES Awakenings ON DELETE CASCADE,
 	a6 varchar(10) NOT NULL REFERENCES Awakenings ON DELETE CASCADE,
 	a7 varchar(10) NOT NULL REFERENCES Awakenings ON DELETE CASCADE,
-	a8 varchar(10) NOT NULL REFERENCES Awakenings ON DELETE CASCADE,	
+	a8 varchar(10) NOT NULL REFERENCES Awakenings ON DELETE CASCADE
 );
 
 CREATE TABLE Monsters (
@@ -94,6 +95,7 @@ CREATE TABLE Monsters (
 	att2 varchar(10) REFERENCES Attributes ON DELETE CASCADE,
 	type1 varchar(10) NOT NULL REFERENCES Types ON DELETE CASCADE,
 	type2 varchar(10) REFERENCES Types ON DELETE CASCADE,
+	type3 varchar(10) REFERENCES Types ON DELETE CASCADE,
 	active varchar(10) NOT NULL REFERENCES Actives ON DELETE CASCADE,
 	obtain varchar(50)
 );
@@ -107,6 +109,6 @@ CREATE TABLE MonsterAwakes (
 	m5 varchar(10) NOT NULL REFERENCES Rarity ON DELETE CASCADE,
 	m6 varchar(10) NOT NULL REFERENCES Rarity ON DELETE CASCADE,
 	m7 varchar(10) NOT NULL REFERENCES Rarity ON DELETE CASCADE,
-	m8 varchar(10) NOT NULL REFERENCES Rarity ON DELETE CASCADE,	
+	m8 varchar(10) NOT NULL REFERENCES Rarity ON DELETE CASCADE
 );
 
