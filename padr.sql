@@ -3,112 +3,121 @@ CREATE SCHEMA padr;
 SET search_path TO padr;
 
 CREATE TABLE Attributes (
-	attID varchar(10) PRIMARY KEY,
-	name varchar(10) NOT NULL,
-	icon varchar(50) NOT NULL
+	attID nvarchar(10) PRIMARY KEY,
+	name nvarchar(10) NOT NULL, -- RGBLD
+	icon nvarchar(50) NOT NULL -- Orb icons
 );
 
 CREATE TABLE Types (
-	typeID varchar(10) PRIMARY KEY,
-	name varchar(10) NOT NULL,
-	icon varchar(50) NOT NULL
+	typeID nvarchar(10) PRIMARY KEY,
+	name nvarchar(10) NOT NULL, -- 8 types
+	icon nvarchar(50) NOT NULL -- type icons
 );
 
 
 CREATE TABLE Actives (
-	actID varchar(10) PRIMARY KEY,
-	name varchar(10) NOT NULL,
-	description varchar(100) NOT NULL,
+	actID nvarchar(10) PRIMARY KEY,
+	name nvarchar(10) NOT NULL,
+	description nvarchar(100) NOT NULL,
 	cooldown int NOT NULL
 );
 
 CREATE TABLE Leaders (
-	leadID varchar(10) PRIMARY KEY,
-	name varchar(10) NOT NULL,
-	description varchar(100) NOT NULL
+	leadID nvarchar(10) PRIMARY KEY,
+	name nvarchar(10) NOT NULL,
+	description nvarchar(100) NOT NULL
 );
 
 
-CREATE TABLE Rarity(
-	rID int PRIMARY KEY,
-	name varchar(10) NOT NULL,
-	icon varchar(50) NOT NULL
+CREATE TABLE Tier(
+	tiID int PRIMARY KEY,
+	name nvarchar(10) NOT NULL,
+	icon nvarchar(50) NOT NULL
 );
 
 CREATE TABLE Awakenings (
-	wID varchar(10) PRIMARY KEY,
-	name varchar(10) NOT NULL,
-	icon varchar(50) NOT NULL,
-	description varchar(100) NOT NULL,
-	rID int NOT NULL REFERENCES Rarity ON DELETE CASCADE
+	wID nvarchar(10) PRIMARY KEY,
+	name nvarchar(10) NOT NULL,
+	icon nvarchar(50) NOT NULL,
+	description nvarchar(100) NOT NULL,
+	rID int NOT NULL REFERENCES Tier ON DELETE CASCADE
+);
+
+CREATE TABLE Rarity (
+	star int PRIMARY KEY,
+	radarPoints int NOT NULL
+);
+
+CREATE TABLE Obtain(
+	obID nvarchar(10) PRIMARY KEY, -- include "not obtainable", "rare gatcha", "event scan" etc.
+	description nvarchar(50) NOT NULL
 );
 
 CREATE TABLE Armors (
-	aID varchar(10) PRIMARY KEY,
-	nameEN varchar(10) NOT NULL,
-	nameJP varchar(10) NOT NULL,
-	icon varchar(50) NOT NULL,
+	aID nvarchar(10) PRIMARY KEY,
+	nameEN nvarchar(10) NOT NULL,
+	nameJP nvarchar(10) NOT NULL,
+	icon nvarchar(50) NOT NULL,
 	atk int NOT NULL,
 	rarity int NOT NULL,
-	att1 varchar(10) NOT NULL REFERENCES Attributes ON DELETE CASCADE,
-	att2 varchar(10) REFERENCES Attributes ON DELETE CASCADE,
-	type1 varchar(10) NOT NULL REFERENCES Types ON DELETE CASCADE,
-	type2 varchar(10) REFERENCES Types ON DELETE CASCADE,
-	type3 varchar(10) REFERENCES Types ON DELETE CASCADE,
-	obtainable boolean NOT NULL,
-	rareGatcha boolean NOT NULL
+	att1 nvarchar(10) NOT NULL REFERENCES Attributes ON DELETE CASCADE,
+	att2 nvarchar(10) REFERENCES Attributes ON DELETE CASCADE,
+	type1 nvarchar(10) NOT NULL REFERENCES Types ON DELETE CASCADE,
+	type2 nvarchar(10) REFERENCES Types ON DELETE CASCADE,
+	type3 nvarchar(10) REFERENCES Types ON DELETE CASCADE,
+	obtain nvarchar(10) NOT NULL REFERENCES Obtain
 );
 
 CREATE TABLE
 
 CREATE TABLE ArmorActives (
-	aID varchar(10) PRIMARY KEY REFERENCES Armors ON DELETE CASCADE,
-	a1 varchar(10) NOT NULL REFERENCES Actives ON DELETE CASCADE,
-	a2 varchar(10) REFERENCES Actives ON DELETE CASCADE,
-	a3 varchar(10) REFERENCES Actives ON DELETE CASCADE,
-	a4 varchar(10) REFERENCES Actives ON DELETE CASCADE,
-	a5 varchar(10) REFERENCES Actives ON DELETE CASCADE
+	aID nvarchar(10) FOREIGN KEY REFERENCES Armors ON DELETE CASCADE,
+	a1 nvarchar(10) NOT NULL REFERENCES Actives ON DELETE CASCADE,
+	a2 nvarchar(10) REFERENCES Actives ON DELETE CASCADE,
+	a3 nvarchar(10) REFERENCES Actives ON DELETE CASCADE,
+	a4 nvarchar(10) REFERENCES Actives ON DELETE CASCADE,
+	a5 nvarchar(10) REFERENCES Actives ON DELETE CASCADE
 );
 
 
 CREATE TABLE ArmorAwakes (
-	aID varchar(10) PRIMARY KEY REFERENCES Armors ON DELETE CASCADE,
-	a1 varchar(10) NOT NULL REFERENCES Awakenings ON DELETE CASCADE,
-	a2 varchar(10) NOT NULL REFERENCES Awakenings ON DELETE CASCADE,
-	a3 varchar(10) NOT NULL REFERENCES Awakenings ON DELETE CASCADE,
-	a4 varchar(10) NOT NULL REFERENCES Awakenings ON DELETE CASCADE,
-	a5 varchar(10) NOT NULL REFERENCES Awakenings ON DELETE CASCADE,
-	a6 varchar(10) NOT NULL REFERENCES Awakenings ON DELETE CASCADE,
-	a7 varchar(10) NOT NULL REFERENCES Awakenings ON DELETE CASCADE,
-	a8 varchar(10) NOT NULL REFERENCES Awakenings ON DELETE CASCADE
+	aID nvarchar(10) FOREIGN KEY REFERENCES Armors ON DELETE CASCADE,
+	a1 nvarchar(10) NOT NULL REFERENCES Awakenings ON DELETE CASCADE,
+	a2 nvarchar(10) NOT NULL REFERENCES Awakenings ON DELETE CASCADE,
+	a3 nvarchar(10) NOT NULL REFERENCES Awakenings ON DELETE CASCADE,
+	a4 nvarchar(10) NOT NULL REFERENCES Awakenings ON DELETE CASCADE,
+	a5 nvarchar(10) NOT NULL REFERENCES Awakenings ON DELETE CASCADE,
+	a6 nvarchar(10) NOT NULL REFERENCES Awakenings ON DELETE CASCADE,
+	a7 nvarchar(10) NOT NULL REFERENCES Awakenings ON DELETE CASCADE,
+	a8 nvarchar(10) NOT NULL REFERENCES Awakenings ON DELETE CASCADE
 );
 
 CREATE TABLE Monsters (
-	mID varchar(10) PRIMARY KEY,
-	nameEN varchar(10) NOT NULL,
-	nameJP varchar(10) NOT NULL,
-	icon varchar(50) NOT NULL,
+	mID nvarchar(10) PRIMARY KEY,
+	nameEN nvarchar(10) NOT NULL,
+	nameJP nvarchar(10) NOT NULL,
+	icon nvarchar(50) NOT NULL,
 	hp int NOT NULL,
 	atk int NOT NULL,
 	rcv int NOT NULL,
-	att1 varchar(10) NOT NULL REFERENCES Attributes ON DELETE CASCADE,
-	att2 varchar(10) REFERENCES Attributes ON DELETE CASCADE,
-	type1 varchar(10) NOT NULL REFERENCES Types ON DELETE CASCADE,
-	type2 varchar(10) REFERENCES Types ON DELETE CASCADE,
-	type3 varchar(10) REFERENCES Types ON DELETE CASCADE,
-	active varchar(10) NOT NULL REFERENCES Actives ON DELETE CASCADE,
-	obtain varchar(50)
+	att1 nvarchar(10) NOT NULL REFERENCES Attributes ON DELETE CASCADE,
+	att2 nvarchar(10) REFERENCES Attributes ON DELETE CASCADE,
+	type1 nvarchar(10) NOT NULL REFERENCES Types ON DELETE CASCADE,
+	type2 nvarchar(10) REFERENCES Types ON DELETE CASCADE,
+	type3 nvarchar(10) REFERENCES Types ON DELETE CASCADE,
+	active nvarchar(10) NOT NULL REFERENCES Actives ON DELETE CASCADE,
+	obtain nvarchar(10) NOT NULL REFERENCES Obtain
 );
 
 CREATE TABLE MonsterAwakes (
-	mID varchar(10) PRIMARY KEY REFERENCES Monsters ON DELETE CASCADE,
-	-- a1 varchar(10) NOT NULL REFERENCES Awakenings ON DELETE CASCADE,
-	m2 varchar(10) NOT NULL REFERENCES Rarity ON DELETE CASCADE,
-	m3 varchar(10) NOT NULL REFERENCES Rarity ON DELETE CASCADE,
-	m4 varchar(10) NOT NULL REFERENCES Rarity ON DELETE CASCADE,
-	m5 varchar(10) NOT NULL REFERENCES Rarity ON DELETE CASCADE,
-	m6 varchar(10) NOT NULL REFERENCES Rarity ON DELETE CASCADE,
-	m7 varchar(10) NOT NULL REFERENCES Rarity ON DELETE CASCADE,
-	m8 varchar(10) NOT NULL REFERENCES Rarity ON DELETE CASCADE
+	mID nvarchar(10) FOREIGN KEY REFERENCES Monsters ON DELETE CASCADE,
+	-- m1 nvarchar(10) NOT NULL REFERENCES Awakenings ON DELETE CASCADE,
+	m2 nvarchar(10) REFERENCES Tier ON DELETE CASCADE,
+	m3 nvarchar(10) REFERENCES Tier ON DELETE CASCADE,
+	m4 nvarchar(10) REFERENCES Tier ON DELETE CASCADE,
+	m5 nvarchar(10) REFERENCES Tier ON DELETE CASCADE,
+	m6 nvarchar(10) REFERENCES Tier ON DELETE CASCADE,
+	m7 nvarchar(10) REFERENCES Tier ON DELETE CASCADE,
+	m8 nvarchar(10) REFERENCES Tier ON DELETE CASCADE
 );
 
