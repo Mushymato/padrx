@@ -1,6 +1,6 @@
 -- DROP SCHEMA IF EXISTS padr CASCADE;
-CREATE SCHEMA padr;
-SET search_path TO padr;
+-- CREATE SCHEMA padr;
+-- SET search_path TO padr;
 
 CREATE TABLE Attributes (
 	attID nvarchar(10) PRIMARY KEY,
@@ -13,21 +13,6 @@ CREATE TABLE Types (
 	name nvarchar(10) NOT NULL, -- 8 types
 	icon nvarchar(50) NOT NULL -- type icons
 );
-
-
-CREATE TABLE Actives (
-	actID nvarchar(10) PRIMARY KEY,
-	name nvarchar(10) NOT NULL,
-	description nvarchar(100) NOT NULL,
-	cooldown int NOT NULL
-);
-
-CREATE TABLE Leaders (
-	leadID nvarchar(10) PRIMARY KEY,
-	name nvarchar(10) NOT NULL,
-	description nvarchar(100) NOT NULL
-);
-
 
 CREATE TABLE Tier(
 	tiID int PRIMARY KEY,
@@ -46,6 +31,20 @@ CREATE TABLE Awakenings (
 CREATE TABLE Rarity (
 	star int PRIMARY KEY,
 	radarPoints int NOT NULL
+);
+
+
+CREATE TABLE Actives (
+	actID nvarchar(10) PRIMARY KEY,
+	name nvarchar(10) NOT NULL,
+	description nvarchar(100) NOT NULL,
+	cooldown int NOT NULL
+);
+
+CREATE TABLE Leaders (
+	leadID nvarchar(10) PRIMARY KEY,
+	name nvarchar(10) NOT NULL,
+	description nvarchar(100) NOT NULL
 );
 
 CREATE TABLE Obtain(
