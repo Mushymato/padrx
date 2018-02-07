@@ -25,7 +25,7 @@ CREATE TABLE Awakenings (
 	name nvarchar(10) NOT NULL,
 	icon nvarchar(50) NOT NULL,
 	description nvarchar(100) NOT NULL,
-	rID int NOT NULL REFERENCES Tier ON DELETE CASCADE
+	tiID int NOT NULL REFERENCES Tier ON DELETE CASCADE
 );
 
 CREATE TABLE Rarity (
