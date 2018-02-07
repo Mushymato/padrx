@@ -20,12 +20,29 @@ INSERT INTO Attributes(attID, name, icon) VALUES
 	('11', 'Awoken Material', 'ico'),
 	('12', 'Vendor', 'ico');
 
+
 INSERT INTO Tier(typeID, name, icon) VALUES
 	('0', 'NULL', 'ico'),
 	('1', 'N', 'ico'),
 	('2', 'R', 'ico'),
 	('3', 'SR', 'ico'),
 	('4', 'UR', 'ico');
+
+INSERT INTO Types(typeID, name, icon) VALUES
+	('0', 'Dragon', 'ico'),
+	('1', 'Balance', 'ico'),
+	('2', 'Physical', 'ico'),
+	('3', 'Healer', 'ico'),
+	('4', 'Attacker', 'ico'),
+	('5', 'God', 'ico'),
+	('6', 'Devil', 'ico'),
+	('7', 'Machine', 'ico'),
+	('8', 'Evo Material', 'ico'),
+	('9', 'Enhance Material', 'ico'),
+	('10', 'Awoken Material', 'ico'),
+	('11', 'Vendor', 'ico'),
+	('12', 'NULL', 'ico');
+
 
 INSERT INTO Awakenings(awkID, name, icon, description, tiID) VALUES 
 	-- DEFAULT BLANK
