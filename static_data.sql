@@ -8,7 +8,7 @@ INSERT INTO Attributes(attID, name, icon) VALUES
 
 INSERT INTO Types(typeID, name, icon) VALUES
 	('0', 'Dragon', 'ico'),
-	('1', 'Balance' 'ico'),
+	('1', 'Balance', 'ico'),
 	('2', 'Physical', 'ico'),
 	('3', 'Healer', 'ico'),
 	('4', 'Attacker', 'ico'),
