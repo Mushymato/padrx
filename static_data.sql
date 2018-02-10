@@ -1,11 +1,19 @@
 INSERT INTO Attributes(attID, name, icon) VALUES
-	('0', 'None', 'ico'),
+	('0', 'NULL', 'ico'),
 	('1', 'Fire', 'ico'),
 	('2', 'Water', 'ico'),
 	('3', 'Wood', 'ico'),
 	('4', 'Dark', 'ico'),
 	('5', 'Light', 'ico');
-	INSERT INTO Types(typeID, name, icon) VALUES
+
+INSERT INTO Tier(typeID, name, icon) VALUES
+	('0', 'NULL', 'ico'),
+	('1', 'N', 'ico'),
+	('2', 'R', 'ico'),
+	('3', 'SR', 'ico'),
+	('4', 'UR', 'ico');
+
+INSERT INTO Types(typeID, name, icon) VALUES
 	('0', 'NULL', 'ico'),
 	('1', 'Dragon', 'ico'),
 	('2', 'Balance', 'ico'),
@@ -17,31 +25,8 @@ INSERT INTO Attributes(attID, name, icon) VALUES
 	('8', 'Machine', 'ico'),
 	('9', 'Evo Material', 'ico'),
 	('10', 'Enhance Material', 'ico'),
-	('11', 'Awoken Material', 'ico'),
-	('12', 'Vendor', 'ico');
-
-
-INSERT INTO Tier(typeID, name, icon) VALUES
-	('0', 'NULL', 'ico'),
-	('1', 'N', 'ico'),
-	('2', 'R', 'ico'),
-	('3', 'SR', 'ico'),
-	('4', 'UR', 'ico');
-
-INSERT INTO Types(typeID, name, icon) VALUES
-	('0', 'Dragon', 'ico'),
-	('1', 'Balance', 'ico'),
-	('2', 'Physical', 'ico'),
-	('3', 'Healer', 'ico'),
-	('4', 'Attacker', 'ico'),
-	('5', 'God', 'ico'),
-	('6', 'Devil', 'ico'),
-	('7', 'Machine', 'ico'),
-	('8', 'Evo Material', 'ico'),
-	('9', 'Enhance Material', 'ico'),
 	('10', 'Awoken Material', 'ico'),
-	('11', 'Vendor', 'ico'),
-	('12', 'NULL', 'ico');
+	('11', 'Vendor', 'ico');
 
 
 INSERT INTO Awakenings(awkID, name, icon, description, tiID) VALUES 
