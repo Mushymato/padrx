@@ -33,12 +33,19 @@ CREATE TABLE Rarity (
 	radarPoints int NOT NULL
 );
 
+CREATE TABLE Effects (
+	effID nvarchar(10) PRIMARY KEY,
+	name nvarchar(10) NOT NULL
+);
 
 CREATE TABLE Actives (
 	actID nvarchar(10) PRIMARY KEY,
 	name nvarchar(10) NOT NULL,
 	description nvarchar(100) NOT NULL,
-	cooldown int NOT NULL
+	cooldown int NOT NULL,
+	effect1 nvarchar(10) NOT NULL REFERENCES Effects,
+	effect2 nvarchar(10) REFERENCES Effects,
+	effect3 nvarchar(10) REFERENCES Effects
 );
 
 CREATE TABLE Leaders (
