@@ -10,7 +10,7 @@ CREATE TABLE Attributes (
 
 CREATE TABLE Types (
 	typeID nvarchar(10) PRIMARY KEY,
-	name nvarchar(10) NOT NULL, -- 8 types
+	name nvarchar(50) NOT NULL, -- 8 types
 	icon nvarchar(50) NOT NULL -- type icons
 );
 
