@@ -48,35 +48,28 @@ CREATE TABLE Actives (
 	effect3 nvarchar(10) REFERENCES Effects
 );
 
-CREATE TABLE Leaders (
+CREATE TABLE LeadSkills (
 	leadID nvarchar(10) PRIMARY KEY,
 	name nvarchar(10) NOT NULL,
 	description nvarchar(100) NOT NULL
 );
 
-CREATE TABLE Obtain(
-	obID nvarchar(10) PRIMARY KEY, -- include "not obtainable", "rare gatcha", "event scan" etc.
-	description nvarchar(50) NOT NULL
-);
-
-CREATE TABLE Armors (
+CREATE TABLE Leaders (
 	aID nvarchar(10) PRIMARY KEY,
 	nameEN nvarchar(10) NOT NULL,
 	nameJP nvarchar(10) NOT NULL,
 	icon nvarchar(50) NOT NULL,
 	atk int NOT NULL,
-	rarity int NOT NULL,
+	star int NOT NULL,
 	att1 nvarchar(10) NOT NULL REFERENCES Attributes ON DELETE CASCADE,
 	att2 nvarchar(10) REFERENCES Attributes ON DELETE CASCADE,
 	type1 nvarchar(10) NOT NULL REFERENCES Types ON DELETE CASCADE,
 	type2 nvarchar(10) REFERENCES Types ON DELETE CASCADE,
 	type3 nvarchar(10) REFERENCES Types ON DELETE CASCADE,
-	obtain nvarchar(10) NOT NULL REFERENCES Obtain
+	obtain nvarchar(20) NOT NULL
 );
 
-CREATE TABLE
-
-CREATE TABLE ArmorActives (
+CREATE TABLE LeaderActives (
 	aID nvarchar(10) FOREIGN KEY REFERENCES Armors ON DELETE CASCADE,
 	a1 nvarchar(10) NOT NULL REFERENCES Actives ON DELETE CASCADE,
 	a2 nvarchar(10) REFERENCES Actives ON DELETE CASCADE,
@@ -86,7 +79,7 @@ CREATE TABLE ArmorActives (
 );
 
 
-CREATE TABLE ArmorAwakes (
+CREATE TABLE LeaderAwakes (
 	aID nvarchar(10) FOREIGN KEY REFERENCES Armors ON DELETE CASCADE,
 	a1 nvarchar(10) NOT NULL REFERENCES Awakenings ON DELETE CASCADE,
 	a2 nvarchar(10) NOT NULL REFERENCES Awakenings ON DELETE CASCADE,
@@ -100,9 +93,10 @@ CREATE TABLE ArmorAwakes (
 
 CREATE TABLE Monsters (
 	mID nvarchar(10) PRIMARY KEY,
-	nameEN nvarchar(10) NOT NULL,
-	nameJP nvarchar(10) NOT NULL,
-	icon nvarchar(50) NOT NULL,
+	nameEN nvarchar(50) NOT NULL,
+	nameJP nvarchar(50) NOT NULL,
+	icon nvarchar(100) NOT NULL,
+	star int NOT NULL REFERENCES Rarity,
 	hp int NOT NULL,
 	atk int NOT NULL,
 	rcv int NOT NULL,
@@ -112,7 +106,7 @@ CREATE TABLE Monsters (
 	type2 nvarchar(10) REFERENCES Types ON DELETE CASCADE,
 	type3 nvarchar(10) REFERENCES Types ON DELETE CASCADE,
 	active nvarchar(10) NOT NULL REFERENCES Actives ON DELETE CASCADE,
-	obtain nvarchar(10) NOT NULL REFERENCES Obtain
+	obtain nvarchar(50) NOT NULL
 );
 
 CREATE TABLE MonsterAwakes (

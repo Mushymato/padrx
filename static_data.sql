@@ -1,3 +1,4 @@
+DELETE FROM Attributes;
 INSERT INTO Attributes(attID, name, icon) VALUES
 	('0', 'NULL', 'ico'),
 	('1', 'Fire', 'ico'),
@@ -6,13 +7,15 @@ INSERT INTO Attributes(attID, name, icon) VALUES
 	('4', 'Dark', 'ico'),
 	('5', 'Light', 'ico');
 
-INSERT INTO Tier(typeID, name, icon) VALUES
+DELETE FROM Tier;
+INSERT INTO Tier(tiID, name, icon) VALUES
 	('0', 'NULL', 'ico'),
 	('1', 'N', 'ico'),
 	('2', 'R', 'ico'),
 	('3', 'SR', 'ico'),
 	('4', 'UR', 'ico');
 
+DELETE FROM Types;
 INSERT INTO Types(typeID, name, icon) VALUES
 	('0', 'NULL', 'ico'),
 	('1', 'Dragon', 'ico'),
@@ -25,10 +28,10 @@ INSERT INTO Types(typeID, name, icon) VALUES
 	('8', 'Machine', 'ico'),
 	('9', 'Evo Material', 'ico'),
 	('10', 'Enhance Material', 'ico'),
-	('10', 'Awoken Material', 'ico'),
-	('11', 'Vendor', 'ico');
+	('11', 'Awoken Material', 'ico'),
+	('12', 'Vendor', 'ico');
 
-
+DELETE FROM Awakenings;
 INSERT INTO Awakenings(awkID, name, icon, description, tiID) VALUES 
 	-- DEFAULT BLANK
 	('0', 'NULL', 'ico', 'NULL', '0'),
@@ -78,6 +81,7 @@ INSERT INTO Awakenings(awkID, name, icon, description, tiID) VALUES
 	('37', 'Attacker Killer', 'ico', 'ATK x2.5 for Unit with Awakening when Opponent''s Soul Armor is Attacker Type', '3'),
 	('38', 'Healer Killer', 'ico', 'ATK x2.5 for Unit with Awakening when Opponent''s Soul Armor is Healer Type', '3');
 
+DELETE FROM Rarity;
 INSERT INTO Rarity(star, radarPoints) VALUES
 	('0', '0'),
 	('1', '10'),
@@ -91,3 +95,9 @@ INSERT INTO Rarity(star, radarPoints) VALUES
 	('9', '700'),
 	('10', '1000');
 
+CREATE TABLE Obtain(
+	obID nvarchar(10) PRIMARY KEY, -- include "not obtainable", "rare gatcha", "event scan" etc.
+	description nvarchar(50) NOT NULL
+);
+DELETE FROM Obtain;
+INSERT INTO
