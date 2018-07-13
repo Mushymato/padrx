@@ -1,0 +1,40 @@
+awkID,name,icon,description,tiID
+r,root,https://i1.wp.com/pad.protic.site/wp-content/uploads/padr-awakenings/,NULL,0
+1,Reduce Fire Damage,rres.png,Reduce Fire Damage by 5%,0
+2,Reduce Water Damage,bres.png,Reduce Water Damage by 5%,0
+3,Reduce Wood Damage,gres.png,Reduce Wood Damage by 5%,0
+4,Reduce Light Damage,lres.png,Reduce Light Damage by 5%,0
+5,Reduce Dark Damage,dres.png,Reduce Dark Damage by 5%,0
+6,Enhanced Fire Attribute,rre.png,Matching Row of Fire will increase Fire Damage by 15%,1
+7,Enhanced Water Attribute,bre.png,Matching Row of Water will increase Water Damage by 15%,1
+8,Enhanced Wood Attribute,gre.png,Matching Row of Wood will increase Wood Damage by 15%,1
+9,Enhanced Light Attribute,lre.png,Matching Row of Light will increase Light Damage by 15%,1
+10,Enhanced Dark Attribute,dre.png,Matching Row of Dark will increase Dark Damage by 15%,1
+11,Enhanced Fire Orb,roe.png,+20% Chance of Enhanced Fire Orbs Appearing; Matching each gives +5% Damage,1
+12,Enhanced Water Orb,boe.png,+20% Chance of Enhanced Water Orbs Appearing; Matching each gives +5% Damage,1
+13,Enhanced Wood Orb,goe.png,+20% Chance of Enhanced Wood Orbs Appearing; Matching each gives +5% Damage,1
+14,Enhanced Light Orb,loe.png,+20% Chance of Enhanced Light Orbs Appearing; Matching each gives +5% Damage,1
+15,Enhanced Dark Orb,doe.png,+20% Chance of Enhanced Dark Orbs Appearing; Matching each gives +5% Damage,1
+16,Enhanced Heart Orb,hoe.png,+20% Chance of Enhanced Heart Orbs Appearing; Matching each gives +5% RCV,1
+17,Resist Poison,prs.png,+50% Chance of Resisting Poison Orb Convert,2
+18,Resist Blind,blrs.png,+50% Chance of Resisting Board Blind,2
+19,Resist Jammer,jrs.png,+50% Chance of Resisting Jammber Orb Convert,2
+20,Resist Bind,brs.png,+50% Bind Resist for Unit with Awakening,2
+21,Resist Lock,lock.png,+50% Chance of Resisting Orb Lock,2
+22,Enhanced HP,hp.png,+10% HP,0
+23,Enhanced ATK,atk.png,+5% ATK,0
+24,Enhanced RCV,rcv.png,+10% RCV,0
+25,Time Extend,te.png,Increase Orb Movement Time by 0.5 Seconds,2
+26,Auto-Heal,ah.png,Recover 2% HP when Orbs are Matched,0
+27,Skill Boost,sb.png,Start Dungeon with Team's Skill Cooldown reduced by 1 Turn,3
+28,Bind Recovery,brc.png,Reduce Bind by 3 turns per row of Hearts Matched,1
+29,Two-Pronged Attack,tpa.png,ATK x1.5 when matching 4 Connected Orbs for Unit with Awakening,3
+30,4-Attribute ATK Enhance,4color.png,ATK x1.5 when Attacking with 4+ Attributes,3
+31,Bonus Attack,fua.png,Deal 1% of opponent HP as a bonus attack when matching a column of hearts,0
+32,God Killer,gok.png,ATK x2.5 for Unit with Awakening when Opponent's Soul Armor is God Type,3
+33,Devil Killer,dek.png,ATK x2.5 for Unit with Awakening when Opponent's Soul Armor is Devil Type,3
+34,Dragon Killer,drk.png,ATK x2.5 for Unit with Awakening when Opponent's Soul Armor is Dragon Type,3
+35,Physical Killer,phk.png,ATK x2.5 for Unit with Awakening when Opponent's Soul Armor is Physical Type,3
+36,Balanced Killer,bak.png,ATK x2.5 for Unit with Awakening when Opponent's Soul Armor is Balanced Type,3
+37,Attacker Killer,atk.png,ATK x2.5 for Unit with Awakening when Opponent's Soul Armor is Attacker Type,3
+38,Healer Killer,hek.png,ATK x2.5 for Unit with Awakening when Opponent's Soul Armor is Healer Type,3
