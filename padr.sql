@@ -5,26 +5,26 @@
 CREATE TABLE Attributes (
 	attID nvarchar(10) PRIMARY KEY,
 	name nvarchar(10) NOT NULL, -- RGBLD
-	icon nvarchar(50) NOT NULL -- Orb icons
+	icon nvarchar(256) NOT NULL -- Orb icons
 );
 
 CREATE TABLE Types (
 	typeID nvarchar(10) PRIMARY KEY,
-	name nvarchar(50) NOT NULL, -- 8 types
-	icon nvarchar(50) NOT NULL -- type icons
+	name nvarchar(256) NOT NULL, -- 8 types
+	icon nvarchar(256) NOT NULL -- type icons
 );
 
 CREATE TABLE Tier(
 	tiID int PRIMARY KEY,
 	name nvarchar(10) NOT NULL,
-	icon nvarchar(50) NOT NULL
+	icon nvarchar(256) NOT NULL
 );
 
 CREATE TABLE Awakenings (
 	wID nvarchar(10) PRIMARY KEY,
 	name nvarchar(10) NOT NULL,
-	icon nvarchar(50) NOT NULL,
-	description nvarchar(100) NOT NULL,
+	icon nvarchar(256) NOT NULL,
+	description nvarchar(256) NOT NULL,
 	tiID int NOT NULL REFERENCES Tier ON DELETE CASCADE
 );
 
@@ -41,7 +41,7 @@ CREATE TABLE Effects (
 CREATE TABLE Actives (
 	actID nvarchar(10) PRIMARY KEY,
 	name nvarchar(10) NOT NULL,
-	description nvarchar(100) NOT NULL,
+	description nvarchar(256) NOT NULL,
 	cooldown int NOT NULL,
 	effect1 nvarchar(10) NOT NULL REFERENCES Effects,
 	effect2 nvarchar(10) REFERENCES Effects,
@@ -51,14 +51,15 @@ CREATE TABLE Actives (
 CREATE TABLE LeadSkills (
 	leadID nvarchar(10) PRIMARY KEY,
 	name nvarchar(10) NOT NULL,
-	description nvarchar(100) NOT NULL
+	description nvarchar(256) NOT NULL
 );
 
 CREATE TABLE Leaders (
 	aID nvarchar(10) PRIMARY KEY,
-	nameEN nvarchar(10) NOT NULL,
-	nameJP nvarchar(10) NOT NULL,
-	icon nvarchar(50) NOT NULL,
+	nameEN nvarchar(256) NOT NULL,
+	nameJP nvarchar(256) NOT NULL,
+	icon nvarchar(256) NOT NULL,
+	image nvarchar(256),
 	atk int NOT NULL,
 	star int NOT NULL,
 	att1 nvarchar(10) NOT NULL REFERENCES Attributes ON DELETE CASCADE,
@@ -66,7 +67,7 @@ CREATE TABLE Leaders (
 	type1 nvarchar(10) NOT NULL REFERENCES Types ON DELETE CASCADE,
 	type2 nvarchar(10) REFERENCES Types ON DELETE CASCADE,
 	type3 nvarchar(10) REFERENCES Types ON DELETE CASCADE,
-	obtain nvarchar(20) NOT NULL
+	obtain nvarchar(256) NOT NULL
 );
 
 CREATE TABLE LeaderActives (
@@ -93,9 +94,9 @@ CREATE TABLE LeaderAwakes (
 
 CREATE TABLE Monsters (
 	mID nvarchar(10) PRIMARY KEY,
-	nameEN nvarchar(50) NOT NULL,
-	nameJP nvarchar(50) NOT NULL,
-	icon nvarchar(100) NOT NULL,
+	nameEN nvarchar(256) NOT NULL,
+	nameJP nvarchar(256) NOT NULL,
+	icon nvarchar(256) NOT NULL,
 	star int NOT NULL REFERENCES Rarity,
 	hp int NOT NULL,
 	atk int NOT NULL,
@@ -106,7 +107,7 @@ CREATE TABLE Monsters (
 	type2 nvarchar(10) REFERENCES Types ON DELETE CASCADE,
 	type3 nvarchar(10) REFERENCES Types ON DELETE CASCADE,
 	active nvarchar(10) NOT NULL REFERENCES Actives ON DELETE CASCADE,
-	obtain nvarchar(50) NOT NULL
+	obtain nvarchar(256) NOT NULL
 );
 
 CREATE TABLE MonsterAwakes (
