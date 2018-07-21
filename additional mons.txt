@@ -1,0 +1,75 @@
+14005,1273,1945
+NNNRRR
+
+B/G Blue Sky Fruit, Berry Dragon 
+蒼天の果実・ベリードラゴン
+Dragon
+10925 / 946/ / 1825
+2N 2R 0SR 1UR
+
+G/x Fafnir
+ファフニール
+Dragon
+13555 / 1316 / 1625
+0N 3R 1SR 1UR
+
+D/x Chaos Dragon Knight
+カオスドラゴンナイト
+Balanced / Dragon
+13780 / 1336 / 1575
+3N 3R 0SR 0UR
+
+D/D Thorn Princess, Sleeping Beauty
+イバラの王女・ねむり姫
+Balanced / Devil
+12650 / 1372 / 1575
+0N 2R 3SR 0UR
+
+7 star
+L/D Alluring Songstress, Diaochan
+傾国の歌姫神・貂蝉
+God / Healer
+27330 / 1265 / 6700
+AS: Unlock all orbs. Increase orb movmenet time by 1 second for 1 turn. (2 turn CD)
+1N 2R 2SR 2UR
+
+7 star
+D/B Devious King Usurper, Sima Yi
+鬼謀の宣王神・司馬懿
+God / Balanced
+31150 / 1563 / 3730
+AS: Unlock all orbs. Change Fire orbs to Dark, Light orbs to Water orbs. (7 turn CD)
+1N 2R 2SR 2UR
+
+5 star
+L/x Sunrise Bowl Dragon, Gasho
+日出の丼龍・ガショウ
+Dragon / Healer
+11995 / 1015 / 1685
+AS: Change Dark and Heal orbs to Light orbs. Blind opponent’s board. (9 turn CD)
+1N 2R 0SR 2UR
+
+6 star
+B/x Water Orb Dragon, Senja
+水の宝珠龍・センジャ
+Dragon
+12198 / 1455 / 444
+AS: Change Dark orbs to Water, Wood orbs to Fire orbs. Lock opponent’s Water orbs. (8 turn CD)
+2N 0R 3SR 1UR
+
+5 star
+B/x Water Cat Dragon, Russian Nyadra
+水の猫龍・ロシニャドラ
+Dragon
+7990 / 1166 / 2395
+AS: Change bottom-most row to Water orbs. Decrease opponent's RCV byt 75% for 3 turns. (7 turn CD)
+0N 2R 2SR 1UR
+
+"R/D Brutal Warrior General, Xiahou Dun","厳烈の猛将神・夏侯惇","God / Physical","37350 / 1643 / 1400","AS: 気炎万丈の一瞥","Remove lock status on all orbs. Change Light orbs to Fire orbs, Water orbs to Dark orbs. ","(7 turn CD)","1N"," ","2R"," ","2SR"," ","2UR"
+
+"L/B Stone Scales Dragon Emperor, Deightros","岩鱗の海龍帝・ディエイトロス","Dragon / Devil","42500 / 1685 / 3780","AS: シャイニングアビスゲート","Increase skyfall of Poison orbs to opponent for 4 turns. Random skyfall of locked orbs for 4 turns."," (8 turn CD)","0N"," ","3R"," ","2SR"," ","2UR"
+
+"L/x Light Orb Dragon, Yobi","光の宝珠龍・ヨウビ","Dragon","12864 / 1016 / 1830","AS: 妖麗の散輝","Change Water orbs to Light orbs, Fire orbs to Dark orbs. Lock opponent’s Light orbs. ","(8 turn CD)","2N"," ","0R"," ","3SR"," ","1UR"
+
+"G/x Wood Cat Dragon, Calico Nyadra","木の猫龍・ミケニャドラ","Dragon","12150 / 1243 / 910","ミーケストレート","0N"," ","2R"," ","2SR"," ","1UR"
+

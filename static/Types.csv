@@ -1,14 +1,15 @@
 typeID,name,icon
-0,NULL,ico
-1,Dragon,ico
-2,Balance,ico
-3,Physical,ico
-4,Healer,ico
-5,Attacker,ico
-6,God,ico
-7,Devil,ico
-8,Machine,ico
-9,"Evo Material",ico
-10,"Enhance Material",ico
-11,"Awoken Material",ico
-12,Vendor,ico
+0,NULL,https://i1.wp.com/pad.protic.site/wp-content/uploads/pad-types/
+1,Dragon,1.png
+2,Balanced,2.png
+3,Physical,3.png
+4,Healer,4.png
+5,Attacker,5.png
+6,God,6.png
+7,Devil,9.png
+8,Machine,12.png
+9,Evo,7.png
+10,Enhance,8.png
+11,Awoken,11.png
+12,Vendor,14.png
+13,Special,10.png
