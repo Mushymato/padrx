@@ -176,30 +176,8 @@ set mona.m8=(
 );
 SET SQL_SAFE_UPDATES = 1;
 
-INSERT INTO `proticsi_PADR`.`Monsters`
-(`mID`,`nameEN`,`nameJP`,`ico`,`rarity`,`att1`,`att2`,`type1`,`type2`,`type3`,`hp`,`atk`,`rcv`,`active`,`obtain`)
-VALUES(default,?,?,?,?,?,?,?,?,NULL,?,?,?,?,?);
-sssisssssiiiis
-
-INSERT INTO `proticsi_PADR`.`Actives`
-(`actID`,`name`,`description`,`cooldown`)
-VALUES(default,?,?,?);
-
-UPDATE `proticsi_PADR`.`Monsters`
-SET
-`nameEN` = ?,
-`nameJP` = ?,
-`icon` = ?,
-`rarity` = ?,
-`att1` = ?,
-`att2` = ?,
-`type1` = ?,
-`type2` = ?,
-`type3` = ?,
-`hp` = ?,
-`atk` = ?,
-`rcv` = ?,
-`active` = ?,
-`obtain` = ?
-WHERE `mID` = ?;
-
+delete from Monsters where mID > 480;
+delete from Actives where actID > 440;
+delete from MonsterAwakes where mID > 480;
+ALTER TABLE Monsters AUTO_INCREMENT = 481;
+ALTER TABLE Actives AUTO_INCREMENT = 441;

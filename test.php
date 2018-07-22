@@ -1,7 +1,13 @@
-$servername = "box5570.bluehost.com";
-$username = "readonly";
-$password = "readonly";
+<!DOCTYPE html>
+<html>
+<body>
 
+<?php
+$servername = "162.241.218.148:3306";
+$username = "proticsi_chuchu";
+$password = "chuchu123";
+
+echo "Test</br>";
 // Create connection
 $conn = new mysqli($servername, $username, $password);
 
@@ -10,9 +16,9 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-echo "Connected successfully";
+echo "Connected successfully</br>";
 
-$sql = "SELECT `Awakenings`.`wID`,
+$sql = "SELECT `Awakenings`.`awID`,
     `Awakenings`.`name`,
     `Awakenings`.`icon`,
     `Awakenings`.`description`,
@@ -23,9 +29,12 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["wID"]. " - Name: " . $row["name"]. " " . $row["icon"]. $row["description"] . " " . $row["tiID"] "<br>";
+        echo "id: " . $row["awID"]. " - Name: " . $row["name"]. " " . $row["icon"]. $row["description"] . " " . $row["tiID"] . "<br>";
     }
 } else {
     echo "0 results";
 }
-$conn->close();
+$conn->close();?>
+
+</body>
+</html>

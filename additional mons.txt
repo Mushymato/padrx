@@ -65,11 +65,14 @@ Dragon
 AS: Change bottom-most row to Water orbs. Decrease opponent's RCV byt 75% for 3 turns. (7 turn CD)
 0N 2R 2SR 1UR
 
-"R/D Brutal Warrior General, Xiahou Dun","厳烈の猛将神・夏侯惇","God / Physical","37350 / 1643 / 1400","AS: 気炎万丈の一瞥","Remove lock status on all orbs. Change Light orbs to Fire orbs, Water orbs to Dark orbs. ","(7 turn CD)","1N"," ","2R"," ","2SR"," ","2UR"
+"Starter Dragon Callers","★3",
+" ","These are the Soul Armors you start with.",
 
-"L/B Stone Scales Dragon Emperor, Deightros","岩鱗の海龍帝・ディエイトロス","Dragon / Devil","42500 / 1685 / 3780","AS: シャイニングアビスゲート","Increase skyfall of Poison orbs to opponent for 4 turns. Random skyfall of locked orbs for 4 turns."," (8 turn CD)","0N"," ","3R"," ","2SR"," ","2UR"
+","R/x Fire Dragon Caller","火の龍喚士","Dragon      ","ATK"," 710","AS:"," Change left-most column to Fire orbs. ","(4 turn CD)","LS:"," ATK x2 for Fire attributes. Increase orb movement time by 1 second.",
 
-"L/x Light Orb Dragon, Yobi","光の宝珠龍・ヨウビ","Dragon","12864 / 1016 / 1830","AS: 妖麗の散輝","Change Water orbs to Light orbs, Fire orbs to Dark orbs. Lock opponent’s Light orbs. ","(8 turn CD)","2N"," ","0R"," ","3SR"," ","1UR"
+","B/x Water Dragon Caller","水の龍喚士","Dragon      ","ATK"," 695","AS:"," Change left-most column to Water orbs. ","(4 turn CD)","LS:"," ATK x2 for Water attributes. Increase orb movement time by 1 second.",
 
-"G/x Wood Cat Dragon, Calico Nyadra","木の猫龍・ミケニャドラ","Dragon","12150 / 1243 / 910","ミーケストレート","0N"," ","2R"," ","2SR"," ","1UR"
+
+
+" ","G/x Wood Dragon Caller","木の龍喚士","Dragon      ","ATK"," 738","AS:"," Change left-most column to Wood orbs. ","(4 turn CD)","LS:"," ATK x2 for Wood attributes. Increase orb movement time by 1 second.",
 
