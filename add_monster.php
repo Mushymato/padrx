@@ -153,43 +153,43 @@ button{
 	<div class="row">
 		<div class="column left">Awakes: </div>
 		<div class="column right"><select name="m2">
-			<option value="0"></option>
+			<option value="NULL"></option>
 			<option value="1">N</option>
 			<option value="2">R</option>
 			<option value="3">SR</option>
 			<option value="4">UR</option>
 		</select> <select name="m3">
-			<option value="0"></option>
+			<option value="NULL"></option>
 			<option value="1">N</option>
 			<option value="2">R</option>
 			<option value="3">SR</option>
 			<option value="4">UR</option>
 		</select> <select name="m4">
-			<option value="0"></option>
+			<option value="NULL"></option>
 			<option value="1">N</option>
 			<option value="2">R</option>
 			<option value="3">SR</option>
 			<option value="4">UR</option>
 		</select> <select name="m5">
-			<option value="0"></option>
+			<option value="NULL"></option>
 			<option value="1">N</option>
 			<option value="2">R</option>
 			<option value="3">SR</option>
 			<option value="4">UR</option>
 		</select> <select name="m6">
-			<option value="0"></option>
+			<option value="NULL"></option>
 			<option value="1">N</option>
 			<option value="2">R</option>
 			<option value="3">SR</option>
 			<option value="4">UR</option>
 		</select> <select name="m7">
-			<option value="0"></option>
+			<option value="NULL"></option>
 			<option value="1">N</option>
 			<option value="2">R</option>
 			<option value="3">SR</option>
 			<option value="4">UR</option>
 		</select> <select name="m8">
-			<option value="0"></option>
+			<option value="NULL"></option>
 			<option value="1">N</option>
 			<option value="2">R</option>
 			<option value="3">SR</option>
@@ -207,17 +207,35 @@ button{
 	<button type="submit" value="Submit">Submit</button>
 </form>
 <?php
-
-function update_tbl_mID($table, $column, $mID, $value){
-	$update_value = $conn->prepare("UPDATE `proticsi_PADR`.`" . $table . "` SET ". $col . "=? WHERE `mID`=?;");
+function update_tbl_mID($conn, $table, $column, $mID, $value){
+	echo "UPDATE `proticsi_PADR`.`" . $table . "` SET `". $column . "`=? WHERE `mID`=?;</br>";
+	$update_value = $conn->prepare("UPDATE `proticsi_PADR`.`" . $table . "` SET `". $column . "`=? WHERE `mID`=?;");
+	if(!$update_value){
+		die("Update " . $table . " failed: " . $conn->error . ".</br>");
+	}
 	$update_value->bind_param("ss", $value, $mID);
 	if($update_value->execute()){
-		echo "Changed " . $col . " of " . $mID . " to " . $value . "</br>";
+		echo "Changed " . $column . " of " . $mID . " to " . $value . "</br>";
 	}else{
-		die("Get actID failed: " . $conn->error . ".</br>");
-	};
+		die("Update " . $table . " failed: " . $conn->error . ".</br>");
+	}
 	$update_value->close();
 }
+
+function update_tbl_active($conn, $column, $name, $value){
+	$update_value = $conn->prepare("UPDATE `proticsi_PADR`.`Actives` SET `". $column . "`=? WHERE `name`=?;");
+	if(!$update_value){
+		die("Update " . $table . " failed: " . $conn->error . ".</br>");
+	}
+	$update_value->bind_param("ss", $value, $name);
+	if($update_value->execute()){
+		echo "Changed " . $column . " of " . $name . " to " . $value . "</br>";
+	}else{
+		die("Update Actives failed: " . $conn->error . ".</br>");
+	}
+	$update_value->close();
+}
+
 
 $servername = "box5570.bluehost.com";
 $username = $_POST["username"];
@@ -277,9 +295,9 @@ if($username != "" and $password != ""){
 		$ico = $_POST["ico"];
 		$rarity = $_POST["rarity"];
 		$att1 = $_POST["att1"];
-		$att2 = $_POST["att2"];
+		$att2 = ($_POST["att2"] == "NULL" ? null : $_POST["att2"]);
 		$type1 = $_POST["type1"];
-		$type2 = $_POST["type2"];
+		$type2 = ($_POST["type2"] == "NULL" or $_POST["type1"] == $_POST["type2"] ? null : $_POST["type2"]);
 		$hp = $_POST["hp"];
 		$atk = $_POST["atk"];
 		$rcv = $_POST["rcv"];
@@ -304,13 +322,13 @@ if($username != "" and $password != ""){
 
 		$insert_awakes = $conn->prepare("INSERT INTO `proticsi_PADR`.`MonsterAwakes`(`mID`,`m2`,`m3`,`m4`,`m5`,`m6`,`m7`,`m8`) VALUES (?,?,?,?,?,?,?,?);");
 		$insert_awakes->bind_param("iiiiiiii", $mID, $m2, $m3, $m4, $m5, $m6, $m7, $m8);
-		$m2 = $_POST["m2"];
-		$m3 = $_POST["m3"];
-		$m4 = $_POST["m4"];
-		$m5 = $_POST["m5"];
-		$m6 = $_POST["m6"];
-		$m7 = $_POST["m7"];
-		$m8 = $_POST["m8"];
+		$m2 = ($_POST["m2"] == "NULL" ? null : $_POST["m2"]);
+		$m3 = ($_POST["m3"] == "NULL" ? null : $_POST["m3"]);
+		$m4 = ($_POST["m4"] == "NULL" ? null : $_POST["m4"]);
+		$m5 = ($_POST["m5"] == "NULL" ? null : $_POST["m5"]);
+		$m6 = ($_POST["m6"] == "NULL" ? null : $_POST["m6"]);
+		$m7 = ($_POST["m7"] == "NULL" ? null : $_POST["m7"]);
+		$m8 = ($_POST["m8"] == "NULL" ? null : $_POST["m8"]);
 
 		if($insert_awakes->execute()){
 			echo "Add " . $nameEN . " awakes sucess.</br>";
@@ -326,23 +344,44 @@ if($username != "" and $password != ""){
 		
 		$mID = $_POST["mID"];
 		
-		if($miD == ""){
-			die("Must provide mID to edit.");
-		}
-		
-		foreach ($monsters_col as $col){
-			$value = $_POST[$col];
-			if($value != ""){
-				update_tbl_mID("Monsters", $col, $mID, $value);
+		if($mID != ""){
+			foreach ($monsters_col as $col){
+				$value = $_POST[$col];
+				if($value != "" or $value == "NULL"){
+					$value = ($value = "NULL" ? null : $value);
+					update_tbl_mID($conn, "Monsters", $col, $mID, $value);
+				}
+			}
+					
+			foreach ($awakes_col as $col){
+				$value = $_POST[$col];
+				if($value != "" or $value == "NULL"){
+					update_tbl_mID($conn, "MonsterAwakes", $col, $mID, $value);
+				}else{
+					break;
+				}
 			}
 		}
+		$name = $_POST["active"];
+		if($name != ""){
+			foreach ($awakes_col as $col){
+				$value = $_POST[$col];
+				if($value != "" or $value == "NULL"){
+					update_tbl_active($conn, "MonsterAwakes", $col, $name, $value);
+				}else{
+					break;
+				}
+			}
+			if($miD != ""){
+				$select_active = $conn->prepare("SELECT actID FROM `proticsi_PADR`.`Actives` WHERE `Actives`.`name`=?;");
+				$select_active->bind_param("s", $active);
+				$select_active->bind_result($actID_res);
 				
-		foreach ($awakes_col as $col){
-			$value = $_POST[$col];
-			if($value != ""){
-				update_tbl_mID("MonsterAwakes", $col, $mID, $value);
-			}else{
-				break;
+				if($select_active->execute() and $select_monster->fetch()){
+					update_tbl_mID("Monsters", "active", $mID, $actID_res);
+				}else{
+					die("Get actID failed: " . $conn->error . ".</br>");
+				}
 			}
 		}
 	}
