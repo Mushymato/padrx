@@ -152,48 +152,46 @@ button{
 	</div>
 	<div class="row">
 		<div class="column left">Awakes: </div>
-		<div class="column right"><select name="m2">
-			<option value="NULL"></option>
-			<option value="1">N</option>
-			<option value="2">R</option>
-			<option value="3">SR</option>
-			<option value="4">UR</option>
-		</select> <select name="m3">
-			<option value="NULL"></option>
-			<option value="1">N</option>
-			<option value="2">R</option>
-			<option value="3">SR</option>
-			<option value="4">UR</option>
-		</select> <select name="m4">
-			<option value="NULL"></option>
-			<option value="1">N</option>
-			<option value="2">R</option>
-			<option value="3">SR</option>
-			<option value="4">UR</option>
-		</select> <select name="m5">
-			<option value="NULL"></option>
-			<option value="1">N</option>
-			<option value="2">R</option>
-			<option value="3">SR</option>
-			<option value="4">UR</option>
-		</select> <select name="m6">
-			<option value="NULL"></option>
-			<option value="1">N</option>
-			<option value="2">R</option>
-			<option value="3">SR</option>
-			<option value="4">UR</option>
-		</select> <select name="m7">
-			<option value="NULL"></option>
-			<option value="1">N</option>
-			<option value="2">R</option>
-			<option value="3">SR</option>
-			<option value="4">UR</option>
-		</select> <select name="m8">
-			<option value="NULL"></option>
-			<option value="1">N</option>
-			<option value="2">R</option>
-			<option value="3">SR</option>
-			<option value="4">UR</option>
+		<div class="column right">
+		N: <select name="N">
+			<option value="0">0</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+		</select> 
+		R: <select name="R">
+			<option value="0">0</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+		</select> 
+		SR: <select name="SR">
+			<option value="0">0</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+		</select> 
+		UR: <select name="UR">
+			<option value="0">0</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
 		</select></div>
 	</div>
 	<div class="row">
@@ -320,15 +318,12 @@ if($username != "" and $password != ""){
 		}
 		$select_monster->close();
 
-		$insert_awakes = $conn->prepare("INSERT INTO `proticsi_PADR`.`MonsterAwakes`(`mID`,`m2`,`m3`,`m4`,`m5`,`m6`,`m7`,`m8`) VALUES (?,?,?,?,?,?,?,?);");
-		$insert_awakes->bind_param("iiiiiiii", $mID, $m2, $m3, $m4, $m5, $m6, $m7, $m8);
-		$m2 = ($_POST["m2"] == "NULL" ? null : $_POST["m2"]);
-		$m3 = ($_POST["m3"] == "NULL" ? null : $_POST["m3"]);
-		$m4 = ($_POST["m4"] == "NULL" ? null : $_POST["m4"]);
-		$m5 = ($_POST["m5"] == "NULL" ? null : $_POST["m5"]);
-		$m6 = ($_POST["m6"] == "NULL" ? null : $_POST["m6"]);
-		$m7 = ($_POST["m7"] == "NULL" ? null : $_POST["m7"]);
-		$m8 = ($_POST["m8"] == "NULL" ? null : $_POST["m8"]);
+		$insert_awakes = $conn->prepare("INSERT INTO `proticsi_PADR`.`MonsterAwakes`(`mID`,`N`,`R`,`SR`,`UR`) VALUES (?,?,?,?,?);");
+		$insert_awakes->bind_param("iiiiiiii", $mID, $n, $r, $sr, $ur);
+		$n = $_POST["N"];
+		$n = $_POST["R"];
+		$n = $_POST["SR"];
+		$n = $_POST["UR"];
 
 		if($insert_awakes->execute()){
 			echo "Add " . $nameEN . " awakes sucess.</br>";

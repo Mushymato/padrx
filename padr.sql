@@ -112,6 +112,15 @@ CREATE TABLE MonsterAwakes (
 	m8 int(11) REFERENCES Tier ON DELETE CASCADE
 );
 
+CREATE TABLE MonsterAwakes (
+	mID int(11) PRIMARY KEY REFERENCES Monsters ON DELETE CASCADE,
+	N int(11),
+	R int(11),
+	SR int(11),
+	UR int(11)
+);
+
+
 -- Fix monster data
 SET SQL_SAFE_UPDATES = 0;
 update Monsters m

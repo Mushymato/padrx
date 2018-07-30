@@ -23,10 +23,10 @@ with open("mons.txt", encoding='utf-8') as f:
                     continue
                 # entry.append(atts[w[0]])
                 # entry.append(atts[w[2]])
-                entry.append(w[4:])
+                # entry.append(w[4:])
             elif count == 1:
-                # entry.append(w)
-                entry.append(rarity)
+                entry.append(w)
+                # entry.append(rarity)
             # elif count == 2:
             #     types = w.split("/")
             #     for t in types:
@@ -47,9 +47,10 @@ with open("mons.txt", encoding='utf-8') as f:
             #         entry.append(w)
             else:
                 if tier.match(w):
-                    num = int(w[0])
-                    for i in range(num):
-                        entry.append(w[1:])
+                    entry.append(w[0])
+                    # num = int(w[0])
+                    # for i in range(num):
+                    #     entry.append(w[1:])
                 # if w[0] == "*":
                 #     entry.append(w)
             count += 1
@@ -57,7 +58,7 @@ with open("mons.txt", encoding='utf-8') as f:
             entry.append("")
             count += 1
         monsterdata.append(entry)
-with open("monsB.csv", "w", encoding='utf-8') as m:
+with open("monsA.csv", "w", encoding='utf-8') as m:
     # m.write("att1,att2,nameEN,nameJP,star,type1,type2,type3,hp,atk,rcv,active,obtain\n")
     for i in monsterdata:
         for j in i:
