@@ -124,6 +124,20 @@ button{
 			<option value="10">Enhance</option>
 			<option value="11">Awoken</option>
 			<option value="12">Vendor</option>
+		</select></br><select name="type3">
+			<option value="NULL"></option>
+			<option value="1">Dragon</option>
+			<option value="2">Balanced</option>
+			<option value="3">Physical</option>
+			<option value="4">Healer</option>
+			<option value="5">Attacker</option>
+			<option value="6">God</option>
+			<option value="7">Devil</option>
+			<option value="8">Machine</option>
+			<option value="9">Evo</option>
+			<option value="10">Enhance</option>
+			<option value="11">Awoken</option>
+			<option value="12">Vendor</option>
 		</select></div>
 	</div>
 	<div class="row">
@@ -259,7 +273,7 @@ if($username != "" and $password != ""){
 		$select_active->bind_result($actID_res);
 		
 		$insert_monster = $conn->prepare("INSERT INTO `proticsi_PADR`.`Monsters` (`nameEN`,`nameJP`,`ico`,`rarity`,`att1`,`att2`,`type1`,`type2`,`hp`,`atk`,`rcv`,`active`,`obtain`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?);");
-		$insert_monster->bind_param("sssissssiiiis", $nameEN, $nameJP, $ico, $rarity, $att1, $att2, $type1, $type2, $hp, $atk, $rcv, $actID, $obtain);
+		$insert_monster->bind_param("sssissssiiiis", $nameEN, $nameJP, $ico, $rarity, $att1, $att2, $type1, $type2, $type3, $hp, $atk, $rcv, $actID, $obtain);
 		$select_monster = $conn->prepare("SELECT mID FROM `proticsi_PADR`.`Monsters` WHERE `Monsters`.`nameJP`=?;");
 		$select_monster->bind_param("s", $nameJP);
 		$select_monster->bind_result($mID_res);
@@ -296,6 +310,7 @@ if($username != "" and $password != ""){
 		$att2 = ($_POST["att2"] == "NULL" ? null : $_POST["att2"]);
 		$type1 = $_POST["type1"];
 		$type2 = ($_POST["type2"] == "NULL" or $_POST["type1"] == $_POST["type2"] ? null : $_POST["type2"]);
+		$type3 = ($_POST["type3"] == "NULL" or $_POST["type1"] == $_POST["type3"] or $_POST["type2"] == $_POST["type3"] ? null : $_POST["type3"]);
 		$hp = $_POST["hp"];
 		$atk = $_POST["atk"];
 		$rcv = $_POST["rcv"];

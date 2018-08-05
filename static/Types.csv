@@ -6,10 +6,10 @@ typeID,name,icon
 4,Healer,4.png
 5,Attacker,5.png
 6,God,6.png
-7,Devil,9.png
-8,Machine,12.png
-9,Evo,7.png
-10,Enhance,8.png
+7,Evo,7.png
+8,Enhance,8.png
+9,Devil,9.png
+10,Special,10.png
 11,Awoken,11.png
-12,Vendor,14.png
-13,Special,10.png
+12,Machine,12.png
+13,Vendor,13.png

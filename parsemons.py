@@ -21,38 +21,38 @@ with open("mons.txt", encoding='utf-8') as f:
             if count == 0:
                 if len(w) < 2 or w[1] != "/":
                     continue
-                # entry.append(atts[w[0]])
-                # entry.append(atts[w[2]])
-                # entry.append(w[4:])
+                entry.append(atts[w[0]])
+                entry.append(atts[w[2]])
+                entry.append(w[4:])
             elif count == 1:
                 entry.append(w)
-                # entry.append(rarity)
-            # elif count == 2:
-            #     types = w.split("/")
-            #     for t in types:
-            #         entry.append(t.strip())
-            #     for i in range(3 - len(types)):
-            #         entry.append("")
-            # elif count == 3:
-            #     stats = w.split("/")
-            #     for s in stats:
-            #         entry.append(s.strip())
-            # elif count == 4:
-            #     if w[0:3] == "AS:":
-            #         if len(w) > 3:
-            #             entry.append(w[4:].strip())
-            #         else:
-            #             continue
-            #     else:
-            #         entry.append(w)
+                entry.append(rarity)
+            elif count == 2:
+                types = w.split("/")
+                for t in types:
+                    entry.append(t.strip())
+                for i in range(3 - len(types)):
+                    entry.append("")
+            elif count == 3:
+                stats = w.split("/")
+                for s in stats:
+                    entry.append(s.strip())
+            elif count == 4:
+                if w[0:3] == "AS:":
+                    if len(w) > 3:
+                        entry.append(w[4:].strip())
+                    else:
+                        continue
+                else:
+                    entry.append(w)
             else:
                 if tier.match(w):
                     entry.append(w[0])
                     # num = int(w[0])
                     # for i in range(num):
                     #     entry.append(w[1:])
-                # if w[0] == "*":
-                #     entry.append(w)
+                if w[0] == "*":
+                    entry.append(w)
             count += 1
         while len(entry) < 9:
             entry.append("")
