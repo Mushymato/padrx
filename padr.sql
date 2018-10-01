@@ -120,6 +120,71 @@ CREATE TABLE MonsterAwakes (
 	UR int(11)
 );
 
+CREATE TABLE Armors (
+	aID INT NOT NULL AUTO_INCREMENT,
+	PRIMARY KEY (aID),
+	nameEN nvarchar(256) NOT NULL,
+	nameJP nvarchar(256) NOT NULL,
+	imageAna nvarchar(256),
+	imageAce nvarchar(256),
+	atk int NOT NULL,
+	rarity int NOT NULL,
+	leadSkill nvarchar(256) NOT NULL,
+	attribute1 nvarchar(10) NOT NULL REFERENCES Attributes ON DELETE CASCADE,
+	attribute2 nvarchar(10) REFERENCES Attributes ON DELETE CASCADE,
+	type1 nvarchar(10) NOT NULL REFERENCES Types ON DELETE CASCADE,
+	type2 nvarchar(10) REFERENCES Types ON DELETE CASCADE,
+	type3 nvarchar(10) REFERENCES Types ON DELETE CASCADE,
+	active1 int REFERENCES Actives ON DELETE CASCADE,
+	active2 int REFERENCES Actives ON DELETE CASCADE,
+	active3 int REFERENCES Actives ON DELETE CASCADE,
+	active4 int REFERENCES Actives ON DELETE CASCADE,
+	active5 int REFERENCES Actives ON DELETE CASCADE,
+	awake1 nvarchar(10) REFERENCES Awakenings ON DELETE CASCADE,
+	awake2 nvarchar(10) REFERENCES Awakenings ON DELETE CASCADE,
+	awake3 nvarchar(10) REFERENCES Awakenings ON DELETE CASCADE,
+	awake4 nvarchar(10) REFERENCES Awakenings ON DELETE CASCADE,
+	awake5 nvarchar(10) REFERENCES Awakenings ON DELETE CASCADE,
+	awake6 nvarchar(10) REFERENCES Awakenings ON DELETE CASCADE,
+	awake7 nvarchar(10) REFERENCES Awakenings ON DELETE CASCADE,
+	awake8 nvarchar(10) REFERENCES Awakenings ON DELETE CASCADE,
+	obtain nvarchar(256) NOT NULL,
+	notes nvarchar(256)
+)
+
+INSERT INTO Armors
+SELECT l.lID aID, nameEN, nameJP, imageAna, imageAce, atk, rarity,
+leadSkill, att1 attribute1, att2 attribute2, type1, type2, type3,
+act1 active1, act2 active2, act3 active3, act4 active4, act5 active5,
+aw1 awake1, aw2 awake2, aw3 awake3, aw4 awake4, aw5 awake5, aw6 awake6, aw7 awake7, aw8 awake8, obtain, notes FROM Leaders l
+inner join LeaderActives lac
+on l.lID = lac.lID
+inner join LeaderAwakes law
+on l.lID = law.lID;
+
+CREATE TABLE Medals (
+	mID INT NOT NULL AUTO_INCREMENT,
+	PRIMARY KEY (mID),
+	nameEN nvarchar(256) NOT NULL,
+	nameJP nvarchar(256) NOT NULL,
+	icon nvarchar(256) NOT NULL DEFAULT 'ico',
+	rarity int NOT NULL REFERENCES Rarity,
+	attribute1 nvarchar(10) NOT NULL REFERENCES Attributes ON DELETE CASCADE,
+	attribute2 nvarchar(10) REFERENCES Attributes ON DELETE CASCADE,
+	type1 nvarchar(10) NOT NULL REFERENCES Types ON DELETE CASCADE,
+	type2 nvarchar(10) REFERENCES Types ON DELETE CASCADE,
+	type3 nvarchar(10) REFERENCES Types ON DELETE CASCADE,
+	hp int NOT NULL DEFAULT 0,
+	atk int NOT NULL DEFAULT 0,
+	rcv int NOT NULL DEFAULT 0,
+	N int(11) NOT NULL DEFAULT 0,
+	R int(11) NOT NULL DEFAULT 0,
+	SR int(11) NOT NULL DEFAULT 0,
+	UR int(11) NOT NULL DEFAULT 0,
+	active int NOT NULL REFERENCES Actives ON DELETE CASCADE,
+	obtain nvarchar(256)
+)
+
 
 -- Fix monster data
 SET SQL_SAFE_UPDATES = 0;
@@ -185,8 +250,8 @@ set mona.m8=(
 );
 SET SQL_SAFE_UPDATES = 1;
 
-delete from Monsters where mID > 480;
-delete from Actives where actID > 440;
-delete from MonsterAwakes where mID > 480;
-ALTER TABLE Monsters AUTO_INCREMENT = 481;
-ALTER TABLE Actives AUTO_INCREMENT = 441;
+delete from Actives where actID > 456;
+ALTER TABLE Actives AUTO_INCREMENT = 456;
+
+delete from Armors where aID > 167;
+ALTER TABLE Armors AUTO_INCREMENT = 167;

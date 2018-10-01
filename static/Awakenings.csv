@@ -1,4 +1,4 @@
-r,root,https://i1.wp.com/pad.protic.site/wp-content/uploads/padr-awakenings/,NULL,0
+0,none,"https://pad.protic.site/wp-content/uploads/padr-awakenings/",,0
 1,Reduce Fire Damage,rres.png,Reduce Fire Damage by 5%,0
 2,Reduce Water Damage,bres.png,Reduce Water Damage by 5%,0
 3,Reduce Wood Damage,gres.png,Reduce Wood Damage by 5%,0
@@ -35,5 +35,5 @@ r,root,https://i1.wp.com/pad.protic.site/wp-content/uploads/padr-awakenings/,NUL
 34,Dragon Killer,drk.png,ATK x2.5 for Unit with Awakening when Opponent's Soul Armor is Dragon Type,3
 35,Physical Killer,phk.png,ATK x2.5 for Unit with Awakening when Opponent's Soul Armor is Physical Type,3
 36,Balanced Killer,bak.png,ATK x2.5 for Unit with Awakening when Opponent's Soul Armor is Balanced Type,3
-37,Attacker Killer,atk.png,ATK x2.5 for Unit with Awakening when Opponent's Soul Armor is Attacker Type,3
+37,Attacker Killer,aak.png,ATK x2.5 for Unit with Awakening when Opponent's Soul Armor is Attacker Type,3
 38,Healer Killer,hek.png,ATK x2.5 for Unit with Awakening when Opponent's Soul Armor is Healer Type,3
